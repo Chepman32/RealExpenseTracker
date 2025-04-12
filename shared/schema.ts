@@ -1,4 +1,4 @@
-import { pgTable, text, serial, integer, boolean, timestamp, json } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, timestamp } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -84,8 +84,8 @@ export const userProfileSchema = z.object({
 // Orders table
 export const orders = pgTable("orders", {
   id: serial("id").primaryKey(),
-  clientId: integer("client_id").notNull(),
-  carrierId: integer("carrier_id"),
+  clientId: integer("client_id").notNull().references(() => users.id),
+  carrierId: integer("carrier_id").references(() => users.id),
   categoryType: text("category_type").notNull(),
   description: text("description").notNull(),
   pickupAddress: text("pickup_address").notNull(),
@@ -103,16 +103,16 @@ export const orders = pgTable("orders", {
 // Order loaders table
 export const orderLoaders = pgTable("order_loaders", {
   id: serial("id").primaryKey(),
-  orderId: integer("order_id").notNull(),
-  loaderId: integer("loader_id").notNull(),
+  orderId: integer("order_id").notNull().references(() => orders.id),
+  loaderId: integer("loader_id").notNull().references(() => users.id),
 });
 
 // Reviews table
 export const reviews = pgTable("reviews", {
   id: serial("id").primaryKey(),
-  orderId: integer("order_id").notNull(),
-  fromUserId: integer("from_user_id").notNull(),
-  toUserId: integer("to_user_id").notNull(),
+  orderId: integer("order_id").notNull().references(() => orders.id),
+  fromUserId: integer("from_user_id").notNull().references(() => users.id),
+  toUserId: integer("to_user_id").notNull().references(() => users.id),
   rating: integer("rating").notNull(),
   comment: text("comment"),
   createdAt: timestamp("created_at").defaultNow(),
