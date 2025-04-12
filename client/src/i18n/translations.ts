@@ -237,7 +237,8 @@ export const translations = {
       about: "О нас",
       blog: "Блог",
       login: "Вход",
-      signup: "Регистрация"
+      signup: "Регистрация",
+      register: "Регистрация"
     },
     hero: {
       title: "Перевозите крупные грузы. Перевозите умно.",
