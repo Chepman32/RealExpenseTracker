@@ -101,8 +101,8 @@ const CarrierRegisterPage: React.FC = () => {
       registerMutation.mutate(userData, {
         onSuccess: () => {
           toast({
-            title: "Registration successful",
-            description: "Your carrier account has been created. Please complete your profile.",
+            title: t('carrierRegister.registrationSuccessful') || "Registration successful",
+            description: t('carrierRegister.accountCreated') || "Your carrier account has been created. Please complete your profile.",
           });
           navigate('/profile');
         }
@@ -399,21 +399,21 @@ const CarrierRegisterPage: React.FC = () => {
         <Breadcrumb className="mb-8">
           <Breadcrumb.Item>
             <Link href="/">
-              <a><HomeOutlined /> Home</a>
+              <a><HomeOutlined /> {t('header.home')}</a>
             </Link>
           </Breadcrumb.Item>
           <Breadcrumb.Item>
             <Link href="/carriers">
-              <a>Carriers</a>
+              <a>{t('header.carriers')}</a>
             </Link>
           </Breadcrumb.Item>
-          <Breadcrumb.Item>Register</Breadcrumb.Item>
+          <Breadcrumb.Item>{t('header.register')}</Breadcrumb.Item>
         </Breadcrumb>
         
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold">Become a Haulino Carrier</h1>
-            <p className="text-gray-600 mt-2">Join our network and start earning by helping people transport their items</p>
+            <h1 className="text-3xl font-bold">{t('carrierRegister.title')}</h1>
+            <p className="text-gray-600 mt-2">{t('carrierRegister.subtitle')}</p>
           </div>
           
           <Card className="shadow-md">
@@ -434,13 +434,13 @@ const CarrierRegisterPage: React.FC = () => {
               <div className="flex justify-between mt-8">
                 {currentStep > 0 && (
                   <Button onClick={prevStep}>
-                    Previous
+                    {t('carrierRegister.previous')}
                   </Button>
                 )}
                 
                 {currentStep < steps.length - 1 && (
                   <Button type="primary" onClick={nextStep}>
-                    Next
+                    {t('carrierRegister.next')}
                   </Button>
                 )}
                 
@@ -452,7 +452,7 @@ const CarrierRegisterPage: React.FC = () => {
           </Card>
           
           <div className="mt-8 text-center text-gray-600">
-            Already registered? <Link href="/auth"><a className="text-primary">Log in</a></Link>
+            {t('carrierRegister.alreadyRegistered')} <Link href="/auth"><a className="text-primary">{t('carrierRegister.login')}</a></Link>
           </div>
         </div>
       </div>

@@ -8,7 +8,8 @@ export const translations = {
       about: "About",
       blog: "Blog",
       login: "Login",
-      signup: "Sign Up"
+      signup: "Sign Up",
+      register: "Register"
     },
     hero: {
       title: "Move big. Move smart.",
@@ -372,7 +373,9 @@ export const translations = {
       alreadyRegistered: "Уже зарегистрированы?",
       login: "Войти",
       previous: "Назад",
-      next: "Далее"
+      next: "Далее",
+      registrationSuccessful: "Регистрация успешна",
+      accountCreated: "Ваш аккаунт перевозчика создан. Пожалуйста, заполните ваш профиль."
     },
     testimonials: {
       title: "Что говорят наши клиенты",
