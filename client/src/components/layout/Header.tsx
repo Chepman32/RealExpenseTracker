@@ -39,22 +39,19 @@ const Header: React.FC = () => {
         {/* Navigation */}
         <nav className="hidden md:flex space-x-8">
           <Link href="/" className="text-white hover:text-[#00FF99] transition-colors">
-            {t('header.home')}
+            Home
           </Link>
           <Link href="/services" className="text-white hover:text-[#00FF99] transition-colors">
-            {t('header.services')}
+            Services
           </Link>
           <Link href="/carriers" className="text-white hover:text-[#00FF99] transition-colors">
-            {t('header.carriers')}
+            Carriers
           </Link>
           <Link href="/loaders" className="text-white hover:text-[#00FF99] transition-colors">
-            {t('header.loaders')}
+            Loaders
           </Link>
           <Link href="/about" className="text-white hover:text-[#00FF99] transition-colors">
-            {t('header.about')}
-          </Link>
-          <Link href="/blog" className="text-white hover:text-[#00FF99] transition-colors">
-            {t('header.blog')}
+            About
           </Link>
         </nav>
 
@@ -123,10 +120,10 @@ const Header: React.FC = () => {
             ) : (
               <>
                 <Link href="/auth" className="text-white hover:text-[#00FF99] transition-colors">
-                  {t('header.login')}
+                  Login
                 </Link>
                 <Link href="/auth" className="bg-[#00FF99] hover:bg-[#00CC7A] text-primary px-4 py-2 rounded-md transition-colors">
-                  {t('header.signup')}
+                  Sign Up
                 </Link>
               </>
             )}
@@ -148,31 +145,28 @@ const Header: React.FC = () => {
           <div className="container mx-auto px-4 py-3">
             <nav className="flex flex-col space-y-3">
               <Link href="/" className="text-white hover:text-[#00FF99] transition-colors py-2">
-                {t('header.home')}
+                Home
               </Link>
               <Link href="/services" className="text-white hover:text-[#00FF99] transition-colors py-2">
-                {t('header.services')}
+                Services
               </Link>
               <Link href="/carriers" className="text-white hover:text-[#00FF99] transition-colors py-2">
-                {t('header.carriers')}
+                Carriers
               </Link>
               <Link href="/loaders" className="text-white hover:text-[#00FF99] transition-colors py-2">
-                {t('header.loaders')}
+                Loaders
               </Link>
               <Link href="/about" className="text-white hover:text-[#00FF99] transition-colors py-2">
-                {t('header.about')}
-              </Link>
-              <Link href="/blog" className="text-white hover:text-[#00FF99] transition-colors py-2">
-                {t('header.blog')}
+                About
               </Link>
               
               {!user && (
                 <div className="pt-2 flex space-x-2">
                   <Link href="/auth" className="text-white border border-white hover:bg-white hover:text-primary px-4 py-2 rounded-md transition-colors flex-1 text-center">
-                    {t('header.login')}
+                    Login
                   </Link>
                   <Link href="/auth" className="bg-[#00FF99] hover:bg-[#00CC7A] text-primary px-4 py-2 rounded-md transition-colors flex-1 text-center">
-                    {t('header.signup')}
+                    Sign Up
                   </Link>
                 </div>
               )}
