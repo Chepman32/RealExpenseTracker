@@ -54,14 +54,20 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     const keys = key.split('.');
     let translation: any = translations[language];
     
+    console.log('Current language:', language);
+    console.log('Translation key:', key);
+    console.log('Available translations:', translations);
+    
     for (const k of keys) {
       if (translation && translation[k]) {
         translation = translation[k];
       } else {
+        console.log('Translation not found for key:', k, 'in path:', key);
         return key; // Return the key if translation is not found
       }
     }
     
+    console.log('Final translation:', translation);
     return typeof translation === 'string' ? translation : key;
   };
 
