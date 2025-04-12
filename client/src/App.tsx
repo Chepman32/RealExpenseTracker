@@ -5,6 +5,7 @@ import HomePage from "@/pages/home-page";
 import AuthPage from "@/pages/auth-page";
 import OrderPage from "@/pages/order-page";
 import CarriersPage from "@/pages/carriers-page";
+import CarrierRegisterPage from "@/pages/carrier-register-page";
 import ProfilePage from "@/pages/profile-page";
 import AdminPage from "@/pages/admin-page";
 import { ProtectedRoute } from "./lib/protected-route";
@@ -23,6 +24,9 @@ function Router() {
       <ProtectedRoute path="/order" component={OrderPage} />
       <Route path="/carriers">
         <CarriersPage />
+      </Route>
+      <Route path="/carriers/register">
+        <CarrierRegisterPage />
       </Route>
       <ProtectedRoute path="/profile" component={ProfilePage} />
       <ProtectedRoute path="/admin" component={AdminPage} />

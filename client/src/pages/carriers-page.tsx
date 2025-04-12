@@ -297,13 +297,15 @@ const CarriersPage: React.FC = () => {
             <p className="text-lg mb-6">
               Become a Haulino carrier and start earning by helping people move their items.
             </p>
-            <Button 
-              type="primary" 
-              size="large"
-              className="bg-[#00FF99] hover:bg-[#00CC7A] text-primary px-8 py-6 h-auto font-semibold"
-            >
-              Apply Now
-            </Button>
+            <Link href="/carriers/register">
+              <Button 
+                type="primary" 
+                size="large"
+                className="bg-[#00FF99] hover:bg-[#00CC7A] text-primary px-8 py-6 h-auto font-semibold"
+              >
+                {t('carriers.applyNow')}
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
