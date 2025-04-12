@@ -21,49 +21,7 @@ const Header: React.FC = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  const languageMenu = (
-    <Menu
-      items={[
-        {
-          key: 'en',
-          label: 'English',
-          onClick: () => setLanguage('en'),
-        },
-        {
-          key: 'ru',
-          label: 'Русский',
-          onClick: () => setLanguage('ru'),
-        },
-      ]}
-    />
-  );
-  
-  const userMenu = user ? (
-    <Menu
-      items={[
-        {
-          key: 'profile',
-          icon: <ProfileOutlined />,
-          label: 'Profile',
-          onClick: () => navigate('/profile'),
-        },
-        ...(user.role === 'admin' ? [
-          {
-            key: 'admin',
-            icon: <DashboardOutlined />,
-            label: 'Admin Dashboard',
-            onClick: () => navigate('/admin'),
-          }
-        ] : []),
-        {
-          key: 'logout',
-          icon: <LogoutOutlined />,
-          label: 'Logout',
-          onClick: handleLogout,
-        },
-      ]}
-    />
-  ) : null;
+  // Menus are now defined directly in the Dropdown components
 
   return (
     <header className="bg-primary sticky top-0 z-50">
@@ -80,30 +38,41 @@ const Header: React.FC = () => {
 
         {/* Navigation */}
         <nav className="hidden md:flex space-x-8">
-          <Link href="/">
-            <a className="text-white hover:text-[#00FF99] transition-colors">{t('header.home')}</a>
+          <Link href="/" className="text-white hover:text-[#00FF99] transition-colors">
+            {t('header.home')}
           </Link>
-          <Link href="/services">
-            <a className="text-white hover:text-[#00FF99] transition-colors">{t('header.services')}</a>
+          <Link href="/services" className="text-white hover:text-[#00FF99] transition-colors">
+            {t('header.services')}
           </Link>
-          <Link href="/carriers">
-            <a className="text-white hover:text-[#00FF99] transition-colors">{t('header.carriers')}</a>
+          <Link href="/carriers" className="text-white hover:text-[#00FF99] transition-colors">
+            {t('header.carriers')}
           </Link>
-          <Link href="/loaders">
-            <a className="text-white hover:text-[#00FF99] transition-colors">{t('header.loaders')}</a>
+          <Link href="/loaders" className="text-white hover:text-[#00FF99] transition-colors">
+            {t('header.loaders')}
           </Link>
-          <Link href="/about">
-            <a className="text-white hover:text-[#00FF99] transition-colors">{t('header.about')}</a>
+          <Link href="/about" className="text-white hover:text-[#00FF99] transition-colors">
+            {t('header.about')}
           </Link>
-          <Link href="/blog">
-            <a className="text-white hover:text-[#00FF99] transition-colors">{t('header.blog')}</a>
+          <Link href="/blog" className="text-white hover:text-[#00FF99] transition-colors">
+            {t('header.blog')}
           </Link>
         </nav>
 
         {/* User & Language Controls */}
         <div className="flex items-center space-x-4">
           {/* Language Switcher */}
-          <Dropdown overlay={languageMenu} placement="bottomRight">
+          <Dropdown menu={{ items: [
+            {
+              key: 'en',
+              label: 'English',
+              onClick: () => setLanguage('en'),
+            },
+            {
+              key: 'ru',
+              label: 'Русский',
+              onClick: () => setLanguage('ru'),
+            },
+          ]}} placement="bottomRight">
             <Button 
               type="text" 
               className="text-white flex items-center" 
@@ -117,7 +86,28 @@ const Header: React.FC = () => {
           {/* Auth Buttons or User Menu */}
           <div className="hidden md:flex items-center space-x-3">
             {user ? (
-              <Dropdown overlay={userMenu} placement="bottomRight">
+              <Dropdown menu={{ items: [
+                {
+                  key: 'profile',
+                  icon: <ProfileOutlined />,
+                  label: 'Profile',
+                  onClick: () => navigate('/profile'),
+                },
+                ...(user.role === 'admin' ? [
+                  {
+                    key: 'admin',
+                    icon: <DashboardOutlined />,
+                    label: 'Admin Dashboard',
+                    onClick: () => navigate('/admin'),
+                  }
+                ] : []),
+                {
+                  key: 'logout',
+                  icon: <LogoutOutlined />,
+                  label: 'Logout',
+                  onClick: handleLogout,
+                },
+              ]}} placement="bottomRight">
                 <div className="flex items-center cursor-pointer">
                   <Avatar 
                     src={user.profilePicture} 
@@ -132,13 +122,11 @@ const Header: React.FC = () => {
               </Dropdown>
             ) : (
               <>
-                <Link href="/auth">
-                  <a className="text-white hover:text-[#00FF99] transition-colors">{t('header.login')}</a>
+                <Link href="/auth" className="text-white hover:text-[#00FF99] transition-colors">
+                  {t('header.login')}
                 </Link>
-                <Link href="/auth">
-                  <a className="bg-[#00FF99] hover:bg-[#00CC7A] text-primary px-4 py-2 rounded-md transition-colors">
-                    {t('header.signup')}
-                  </a>
+                <Link href="/auth" className="bg-[#00FF99] hover:bg-[#00CC7A] text-primary px-4 py-2 rounded-md transition-colors">
+                  {t('header.signup')}
                 </Link>
               </>
             )}
@@ -159,52 +147,44 @@ const Header: React.FC = () => {
         <div className="md:hidden bg-primary border-t border-gray-700">
           <div className="container mx-auto px-4 py-3">
             <nav className="flex flex-col space-y-3">
-              <Link href="/">
-                <a className="text-white hover:text-[#00FF99] transition-colors py-2">{t('header.home')}</a>
+              <Link href="/" className="text-white hover:text-[#00FF99] transition-colors py-2">
+                {t('header.home')}
               </Link>
-              <Link href="/services">
-                <a className="text-white hover:text-[#00FF99] transition-colors py-2">{t('header.services')}</a>
+              <Link href="/services" className="text-white hover:text-[#00FF99] transition-colors py-2">
+                {t('header.services')}
               </Link>
-              <Link href="/carriers">
-                <a className="text-white hover:text-[#00FF99] transition-colors py-2">{t('header.carriers')}</a>
+              <Link href="/carriers" className="text-white hover:text-[#00FF99] transition-colors py-2">
+                {t('header.carriers')}
               </Link>
-              <Link href="/loaders">
-                <a className="text-white hover:text-[#00FF99] transition-colors py-2">{t('header.loaders')}</a>
+              <Link href="/loaders" className="text-white hover:text-[#00FF99] transition-colors py-2">
+                {t('header.loaders')}
               </Link>
-              <Link href="/about">
-                <a className="text-white hover:text-[#00FF99] transition-colors py-2">{t('header.about')}</a>
+              <Link href="/about" className="text-white hover:text-[#00FF99] transition-colors py-2">
+                {t('header.about')}
               </Link>
-              <Link href="/blog">
-                <a className="text-white hover:text-[#00FF99] transition-colors py-2">{t('header.blog')}</a>
+              <Link href="/blog" className="text-white hover:text-[#00FF99] transition-colors py-2">
+                {t('header.blog')}
               </Link>
               
               {!user && (
                 <div className="pt-2 flex space-x-2">
-                  <Link href="/auth">
-                    <a className="text-white border border-white hover:bg-white hover:text-primary px-4 py-2 rounded-md transition-colors flex-1 text-center">
-                      {t('header.login')}
-                    </a>
+                  <Link href="/auth" className="text-white border border-white hover:bg-white hover:text-primary px-4 py-2 rounded-md transition-colors flex-1 text-center">
+                    {t('header.login')}
                   </Link>
-                  <Link href="/auth">
-                    <a className="bg-[#00FF99] hover:bg-[#00CC7A] text-primary px-4 py-2 rounded-md transition-colors flex-1 text-center">
-                      {t('header.signup')}
-                    </a>
+                  <Link href="/auth" className="bg-[#00FF99] hover:bg-[#00CC7A] text-primary px-4 py-2 rounded-md transition-colors flex-1 text-center">
+                    {t('header.signup')}
                   </Link>
                 </div>
               )}
               
               {user && (
                 <div className="pt-2 flex flex-col space-y-2">
-                  <Link href="/profile">
-                    <a className="text-white border border-white hover:bg-white hover:text-primary px-4 py-2 rounded-md transition-colors text-center">
-                      Profile
-                    </a>
+                  <Link href="/profile" className="text-white border border-white hover:bg-white hover:text-primary px-4 py-2 rounded-md transition-colors text-center">
+                    Profile
                   </Link>
                   {user.role === 'admin' && (
-                    <Link href="/admin">
-                      <a className="text-white border border-white hover:bg-white hover:text-primary px-4 py-2 rounded-md transition-colors text-center">
-                        Admin Dashboard
-                      </a>
+                    <Link href="/admin" className="text-white border border-white hover:bg-white hover:text-primary px-4 py-2 rounded-md transition-colors text-center">
+                      Admin Dashboard
                     </Link>
                   )}
                   <button
