@@ -7,20 +7,26 @@ async function throwIfResNotOk(res: Response) {
   }
 }
 
+import { getExpenses, addExpense } from "@/services/mockApi";
+
 export async function apiRequest(
   method: string,
   url: string,
   data?: unknown | undefined,
-): Promise<Response> {
-  const res = await fetch(url, {
-    method,
-    headers: data ? { "Content-Type": "application/json" } : {},
-    body: data ? JSON.stringify(data) : undefined,
-    credentials: "include",
-  });
+): Promise<any> {
+  console.log(`Mock API request: ${method} ${url} with data:`, data);
 
-  await throwIfResNotOk(res);
-  return res;
+  if (url === "/api/expenses" && method === "GET") {
+    return { json: () => Promise.resolve(getExpenses()) };
+  }
+
+  if (url === "/api/expenses" && method === "POST") {
+    const newExpense = await addExpense(data);
+    return { json: () => Promise.resolve(newExpense) };
+  }
+
+  // Add more mock API endpoints as needed
+  return { json: () => Promise.resolve({}) };
 }
 
 type UnauthorizedBehavior = "returnNull" | "throw";
@@ -28,17 +34,16 @@ export const getQueryFn: <T>(options: {
   on401: UnauthorizedBehavior;
 }) => QueryFunction<T> =
   ({ on401: unauthorizedBehavior }) =>
-  async ({ queryKey }) => {
-    const res = await fetch(queryKey[0] as string, {
-      credentials: "include",
-    });
+  async ({ queryKey }): Promise<any> => {
+    const url = queryKey[0] as string;
+    console.log(`Mock API request: GET ${url}`);
 
-    if (unauthorizedBehavior === "returnNull" && res.status === 401) {
-      return null;
+    if (url === "/api/expenses") {
+      return getExpenses() as any;
     }
 
-    await throwIfResNotOk(res);
-    return await res.json();
+    // Add more mock API endpoints as needed
+    return {};
   };
 
 export const queryClient = new QueryClient({
