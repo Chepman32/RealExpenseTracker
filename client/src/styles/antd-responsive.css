@@ -1,0 +1,491 @@
+/* Ant Design Responsive Overrides */
+
+/* Mobile-first approach for Ant Design components */
+
+/* Buttons */
+.ant-btn {
+  height: auto;
+  min-height: 44px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Form items */
+.ant-form-item {
+  margin-bottom: 24px;
+}
+
+.ant-form-item-label {
+  padding-bottom: 8px;
+}
+
+.ant-form-item-label > label {
+  font-size: 16px;
+}
+
+.ant-input,
+.ant-input-affix-wrapper,
+.ant-select-selector,
+.ant-picker {
+  min-height: 44px;
+  padding: 8px 12px;
+  font-size: 16px; /* Prevents iOS zoom on focus */
+}
+
+.ant-select-selector {
+  display: flex;
+  align-items: center;
+}
+
+.ant-input-affix-wrapper .ant-input {
+  min-height: auto;
+  padding: 0;
+}
+
+/* Dropdown menus */
+.ant-dropdown-menu {
+  padding: 8px;
+}
+
+.ant-dropdown-menu-item {
+  padding: 12px 16px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+/* Modal */
+.ant-modal {
+  max-width: calc(100vw - 32px);
+  margin: 16px auto;
+}
+
+.ant-modal-content {
+  padding: 16px;
+}
+
+.ant-modal-header {
+  padding: 16px 16px 8px;
+}
+
+.ant-modal-body {
+  padding: 16px 16px 24px;
+}
+
+.ant-modal-footer {
+  padding: 8px 16px 16px;
+}
+
+/* Table */
+.ant-table {
+  overflow-x: auto;
+}
+
+.ant-table-thead > tr > th,
+.ant-table-tbody > tr > td {
+  padding: 12px 8px;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .ant-table-thead > tr > th,
+  .ant-table-tbody > tr > td {
+    padding: 16px;
+    white-space: normal;
+  }
+}
+
+/* Card */
+.ant-card {
+  margin-bottom: 16px;
+}
+
+.ant-card-head {
+  padding: 0 16px;
+  min-height: 48px;
+}
+
+.ant-card-body {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .ant-card-head {
+    padding: 0 24px;
+  }
+  
+  .ant-card-body {
+    padding: 24px;
+  }
+}
+
+/* Tabs */
+.ant-tabs-tab {
+  padding: 12px 16px;
+  margin: 0;
+}
+
+.ant-tabs-tab + .ant-tabs-tab {
+  margin-left: 4px;
+}
+
+/* Menu */
+.ant-menu-item {
+  height: auto;
+  line-height: 1.5;
+  padding: 12px 16px;
+}
+
+/* Avatar */
+.ant-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Notification & Message */
+.ant-notification-notice,
+.ant-message-notice-content {
+  width: calc(100vw - 32px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .ant-notification-notice,
+  .ant-message-notice-content {
+    width: auto;
+    max-width: 384px;
+  }
+}
+
+/* Drawer */
+.ant-drawer-content-wrapper {
+  width: 85% !important;
+}
+
+@media (min-width: 768px) {
+  .ant-drawer-content-wrapper {
+    width: 378px !important;
+  }
+}
+
+/* Collapse */
+.ant-collapse-header {
+  padding: 12px 16px !important;
+  min-height: 44px;
+}
+
+.ant-collapse-content-box {
+  padding: 16px !important;
+}
+
+/* Steps */
+.ant-steps {
+  flex-direction: column;
+}
+
+.ant-steps-item {
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .ant-steps {
+    flex-direction: row;
+  }
+  
+  .ant-steps-item {
+    margin-bottom: 0;
+  }
+}
+
+/* Pagination */
+.ant-pagination-item,
+.ant-pagination-prev,
+.ant-pagination-next,
+.ant-pagination-jump-prev,
+.ant-pagination-jump-next {
+  min-width: 32px;
+  height: 32px;
+  line-height: 30px;
+  margin-right: 4px;
+}
+
+@media (min-width: 768px) {
+  .ant-pagination-item,
+  .ant-pagination-prev,
+  .ant-pagination-next,
+  .ant-pagination-jump-prev,
+  .ant-pagination-jump-next {
+    min-width: 40px;
+    height: 40px;
+    line-height: 38px;
+    margin-right: 8px;
+  }
+}
+
+/* Date picker */
+.ant-picker {
+  width: 100%;
+}
+
+/* Time picker */
+.ant-picker-time-panel-column {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Upload */
+.ant-upload.ant-upload-select {
+  width: 100%;
+}
+
+.ant-upload-list-item {
+  margin-top: 8px;
+}
+
+/* Checkbox and Radio */
+.ant-checkbox-wrapper,
+.ant-radio-wrapper {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.ant-checkbox + span,
+.ant-radio + span {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+/* Switch */
+.ant-switch {
+  min-width: 44px;
+  height: 22px;
+}
+
+/* Rate */
+.ant-rate {
+  font-size: 24px;
+}
+
+/* Slider */
+.ant-slider {
+  margin: 14px 6px 10px;
+}
+
+.ant-slider-handle {
+  width: 24px;
+  height: 24px;
+  margin-top: -10px;
+}
+
+/* Progress */
+.ant-progress-text {
+  font-size: 14px;
+}
+
+/* Tag */
+.ant-tag {
+  margin-bottom: 8px;
+  padding: 4px 8px;
+  font-size: 14px;
+}
+
+/* Badge */
+.ant-badge-count {
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+/* Tooltip */
+.ant-tooltip {
+  max-width: calc(100vw - 32px);
+}
+
+/* Popover */
+.ant-popover {
+  max-width: calc(100vw - 32px);
+}
+
+.ant-popover-inner-content {
+  padding: 12px 16px;
+}
+
+/* Alert */
+.ant-alert {
+  padding: 12px 16px;
+}
+
+/* Spin */
+.ant-spin-container {
+  position: relative;
+}
+
+/* Result */
+.ant-result-title {
+  font-size: 20px;
+}
+
+@media (min-width: 768px) {
+  .ant-result-title {
+    font-size: 24px;
+  }
+}
+
+/* Empty */
+.ant-empty-image {
+  height: 60px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .ant-empty-image {
+    height: 100px;
+  }
+}
+
+/* Skeleton */
+.ant-skeleton-paragraph > li {
+  height: 16px;
+}
+
+/* Timeline */
+.ant-timeline-item {
+  padding-bottom: 20px;
+}
+
+/* Statistic */
+.ant-statistic-title {
+  margin-bottom: 4px;
+}
+
+/* Comment */
+.ant-comment-content-author {
+  flex-wrap: wrap;
+}
+
+/* List */
+.ant-list-item {
+  padding: 12px 0;
+}
+
+@media (min-width: 768px) {
+  .ant-list-item {
+    padding: 16px 0;
+  }
+}
+
+/* Descriptions */
+.ant-descriptions-item-label,
+.ant-descriptions-item-content {
+  padding: 12px 8px;
+}
+
+@media (min-width: 768px) {
+  .ant-descriptions-item-label,
+  .ant-descriptions-item-content {
+    padding: 16px 24px;
+  }
+}
+
+/* Calendar */
+.ant-picker-calendar-header {
+  padding: 12px 8px;
+  flex-wrap: wrap;
+}
+
+.ant-picker-panel {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .ant-picker-calendar-header {
+    padding: 12px;
+  }
+}
+
+/* Tree */
+.ant-tree-treenode {
+  padding: 4px 0 4px 8px;
+}
+
+.ant-tree-node-content-wrapper {
+  min-height: 32px;
+  line-height: 32px;
+}
+
+/* Transfer */
+.ant-transfer {
+  flex-direction: column;
+}
+
+.ant-transfer-list {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.ant-transfer-operation {
+  margin: 0 0 16px 0;
+}
+
+@media (min-width: 768px) {
+  .ant-transfer {
+    flex-direction: row;
+  }
+  
+  .ant-transfer-list {
+    width: 200px;
+    margin-bottom: 0;
+  }
+  
+  .ant-transfer-operation {
+    margin: 0 8px;
+  }
+}
+
+/* Cascader */
+.ant-cascader-menus {
+  max-width: calc(100vw - 32px);
+}
+
+/* Mentions */
+.ant-mentions {
+  min-height: 44px;
+  padding: 8px 12px;
+}
+
+/* Image */
+.ant-image {
+  max-width: 100%;
+}
+
+/* Typography */
+.ant-typography-edit-content {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+/* Space */
+.ant-space {
+  flex-wrap: wrap;
+}
+
+.ant-space-item {
+  margin-bottom: 8px;
+}
+
+@media (min-width: 768px) {
+  .ant-space {
+    flex-wrap: nowrap;
+  }
+  
+  .ant-space-item {
+    margin-bottom: 0;
+  }
+}

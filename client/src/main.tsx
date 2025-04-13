@@ -1,6 +1,7 @@
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
+import "./styles/antd-responsive.css";
 import { AuthProvider } from "./hooks/use-auth";
 import { LanguageProvider } from "./context/LanguageContext";
 import { ConfigProvider } from "antd";
