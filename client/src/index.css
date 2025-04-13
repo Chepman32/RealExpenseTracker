@@ -1,13 +1,133 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    @apply font-sans antialiased;
+    background-color: #051622; /* Dark blue background */
+    color: #ffffff; /* White text */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobile styles */
+  body {
+    font-size: 16px;
+    padding: 20px;
+  }
+
+  /* Header styles */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  .logo {
+    color: #5be3a9; /* Green logo color */
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-icon {
+    margin-right: 8px;
+  }
+
+  .sign-up-button {
+    color: #5be3a9;
+    font-size: 1rem;
+    background: transparent;
+    border: none;
+  }
+
+  /* Hero section styles */
+  .hero-section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+
+  .hero-section h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #ffffff;
+  }
+
+  .hero-image {
+    align-self: flex-end;
+    width: 80%;
+    max-width: 300px;
+    margin-top: -40px; /* Overlap with text */
+  }
+
+  /* Request button */
+  .request-button {
+    background-color: #5be3a9;
+    color: #051622;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 16px 24px;
+    border-radius: 40px;
+    margin: 20px 0 30px 0;
+    width: fit-content;
+    max-width: 200px;
+  }
+
+  /* Services section */
+  .services-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 25px;
+  }
+
+  .service-item {
+    background-color: #092638; /* Slightly lighter blue */
+    border-radius: 10px;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .service-icon {
+    color: #5be3a9;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+
+  .service-name {
+    font-size: 1rem;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  /* Bottom progress bars */
+  .progress-bars {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+  }
+
+  .progress-bar-primary {
+    height: 8px;
+    background-color: #5be3a9;
+    border-radius: 4px;
+    width: 60%;
+  }
+
+  .progress-bar-secondary {
+    height: 8px;
+    background-color: #5be3a9;
+    border-radius: 4px;
+    width: 30%;
   }
 }

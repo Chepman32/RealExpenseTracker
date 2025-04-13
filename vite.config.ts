@@ -30,4 +30,7 @@ export default defineConfig({
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
   },
+  server: {
+    open: true, // This will automatically open the browser when the server starts
+  },
 });
